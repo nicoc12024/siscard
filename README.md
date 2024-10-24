@@ -1,22 +1,23 @@
-#Documentación - Proyecto Siscard
-##Requisitos
-##Asegúrate de tener instalados los siguientes programas en tu sistema:
+# Documentación - Proyecto Siscard
+
+**Requisitos**
+**Asegúrate de tener instalados los siguientes programas en tu sistema:**
 
 - Node.js (versión 14 o superior)
 - Angular CLI
 - SQL Server (o un servidor compatible)
 - Git (para clonar el repositorio)
 
-##Instrucciones para ejecutar el proyecto
+## Instrucciones para ejecutar el proyecto
 
-1. ###Clonar el repositorio
+1. ### Clonar el repositorio
 
 ```bash
 git clone https://github.com/<tu-usuario>/<tu-repositorio>.git
 cd <tu-repositorio>
 ```
 
-2. ###Configurar el Backend
+2. ### Configurar el Backend
 1. Ve a la carpeta del backend:
 
 ```bash
@@ -29,7 +30,7 @@ cd backend
 npm install
 ```
 
-3. ###Configura las variables de entorno:
+3. ### Configura las variables de entorno:
 
 - Crea un archivo `.env` en la carpeta `backend` con el siguiente contenido:
 
@@ -41,7 +42,7 @@ DB_PASSWORD=tu-password
 DB_PORT=1433
 ```
 
-4. ###Inicia el servidor backend:
+4. ### Inicia el servidor backend:
 
 ```bash
 npm start
