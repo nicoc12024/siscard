@@ -2,8 +2,8 @@
 
 **Asegúrate de tener instalados los siguientes programas en tu sistema:**
 
-- Node.js (versión 14 o superior)
-- Angular CLI
+- Node.js (Probado con la versión 20.11.1)
+- Angular CLI (Probado con la versión 18.2.9)
 - SQL Server (o un servidor compatible)
 - Git (para clonar el repositorio)
 
