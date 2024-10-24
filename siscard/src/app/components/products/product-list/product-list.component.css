@@ -1,0 +1,32 @@
+table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.mat-header-cell,
+.mat-cell {
+  padding: 8px;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .pagination-controls {
+    flex-wrap: wrap;
+  }
+
+  .pagination-controls button {
+    width: 40px;
+    margin: 2px;
+  }
+}

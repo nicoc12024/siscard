@@ -1,0 +1,15 @@
+<div class="product-container">
+  <h1>Lista de Productos</h1>
+
+  <!-- Componente de formulario de productos -->
+  <app-product-form [newProduct]="newProduct" [isEditing]="isEditing" (saveProduct)="addProduct($event)"
+    (cancelEdit)="cancelEdit()">
+  </app-product-form>
+
+  <!-- Componente de lista de productos -->
+  <app-product-list [products]="products" [paginatedProducts]="paginatedProducts" [pageIndex]="pageIndex"
+    [totalPages]="totalPages" (editProduct)="editProduct($event)" (deleteProduct)="deleteProduct($event)"
+    (goToPage)="goToPage($event)" (prevPage)="prevPage()" (nextPage)="nextPage()">
+  </app-product-list>
+
+</div>
