@@ -1,6 +1,5 @@
 # Documentación - Proyecto Siscard
 
-**Requisitos**
 **Asegúrate de tener instalados los siguientes programas en tu sistema:**
 
 - Node.js (versión 14 o superior)
@@ -13,8 +12,8 @@
 1. ### Clonar el repositorio
 
 ```bash
-git clone https://github.com/<tu-usuario>/<tu-repositorio>.git
-cd <tu-repositorio>
+git clone https://github.com/nicoc12024/siscard.git
+cd <siscard>
 ```
 
 2. ### Configurar el Backend
