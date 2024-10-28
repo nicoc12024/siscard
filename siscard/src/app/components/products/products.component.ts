@@ -59,7 +59,8 @@ export class ProductComponent implements OnInit {
     if (this.isEditing) {
       this.productService
         .updateProduct(newProduct.id, newProduct)
-        .subscribe(() => {
+        .subscribe((mensaje) => {
+          this.snackBar.open(mensaje.message, 'Cerrar', { duration: 3000 });
           this.refreshProducts();
           this.isEditing = false;
         });
@@ -71,7 +72,8 @@ export class ProductComponent implements OnInit {
           newProduct.price,
           newProduct.stock
         )
-        .subscribe(() => {
+        .subscribe((mensaje) => {
+          this.snackBar.open(mensaje.message, 'Cerrar', { duration: 3000 });
           this.refreshProducts();
         });
     }
@@ -83,12 +85,8 @@ export class ProductComponent implements OnInit {
   }
 
   deleteProduct(productId: number) {
-    this.productService.deleteProduct(productId).subscribe(() => {
-      this.snackBar.open(
-        `El producto ha sido eliminado correctamente.`,
-        'Cerrar',
-        { duration: 3000 }
-      );
+    this.productService.deleteProduct(productId).subscribe((mensaje) => {
+      this.snackBar.open(mensaje.message, 'Cerrar', { duration: 3000 });
       this.refreshProducts();
     });
   }

@@ -4,7 +4,6 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
 
 export interface Product {
   id: number;
@@ -25,7 +24,6 @@ export interface Product {
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSnackBarModule,
   ],
 })
 export class ProductFormComponent {
@@ -40,19 +38,11 @@ export class ProductFormComponent {
   @Output() saveProduct = new EventEmitter<Product>();
   @Output() cancelEdit = new EventEmitter<void>();
 
-  constructor(private snackBar: MatSnackBar) {}
+  constructor() {}
 
   onSubmit(form: NgForm) {
     if (form.valid) {
       this.saveProduct.emit(this.newProduct);
-
-      this.snackBar.open(
-        `El producto ha sido ${
-          this.isEditing ? 'actualizado' : 'añadido'
-        } correctamente.`,
-        'Cerrar',
-        { duration: 3000 }
-      );
       this.resetForm(form);
     }
   }

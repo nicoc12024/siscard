@@ -1,10 +1,10 @@
-IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'siscard01')
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'siscard02')
 BEGIN
-    CREATE DATABASE siscard01;
+    CREATE DATABASE siscard02;
 END;
 GO
 
-USE siscard01;
+USE siscard02;
 GO
 
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Products]') AND type in (N'U'))
