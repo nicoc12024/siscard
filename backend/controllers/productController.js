@@ -11,8 +11,8 @@ const router = express.Router(); // Define 'router' usando express.Router()
 
 router.get("/", async (req, res) => {
   try {
-    await getAllProducts();
-    res.status(201).json({ message: "Lista de productos" });
+    const products = await getAllProducts();
+    res.status(200).json(products.recordsets[0]);
   } catch (err) {
     res.status(500).json({ error: "Error al obtener los productos" });
   }

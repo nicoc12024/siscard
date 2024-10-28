@@ -8,7 +8,6 @@ const port = 3000;
 
 app.use(cors());
 
-// Usa el middleware JSON de Express directamente
 app.use(express.json());
 
 connectToDb()

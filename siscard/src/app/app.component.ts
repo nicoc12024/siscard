@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   showWelcomeScreen: boolean = true;
 
   ngOnInit(): void {
-    // Configurar la pantalla de bienvenida para que desaparezca después de 1.5 segundos
+    // Configurar la pantalla de bienvenida para que desaparezca después de 2.5 segundos
     setTimeout(() => {
       const welcomeScreen = document.querySelector('.welcome-screen');
       if (welcomeScreen) {
@@ -22,6 +22,9 @@ export class AppComponent implements OnInit {
       }
 
       setTimeout(() => {
+        if (welcomeScreen) {
+          welcomeScreen.classList.add('none');
+        }
         this.showWelcomeScreen = false;
       }, 1000);
     }, 2500);

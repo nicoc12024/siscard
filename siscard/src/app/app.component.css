@@ -25,11 +25,15 @@
 
 /* Contenido principal */
 .content {
-  opacity: 0; 
-  transition: opacity 1s ease-in-out; 
-  z-index: 1; /
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
 }
 
 .content.visible {
   opacity: 1;
+}
+
+.none {
+  display: none;
 }
