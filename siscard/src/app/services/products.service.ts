@@ -38,19 +38,29 @@ export class ProductService {
     description: string,
     price: number,
     stock: number
-  ): Observable<Product> {
+  ): Observable<{ message: string }> {
     const newProduct: Omit<Product, 'id'> = { name, description, price, stock };
-    return this.http.post<Product>(this.apiUrl, newProduct, this.httpOptions);
+    return this.http.post<{ message: string }>(
+      this.apiUrl,
+      newProduct,
+      this.httpOptions
+    );
   }
 
   // Eliminar un producto
-  deleteProduct(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`, this.httpOptions);
+  deleteProduct(id: number): Observable<{ message: string }> {
+    return this.http.delete<{ message: string }>(
+      `${this.apiUrl}/${id}`,
+      this.httpOptions
+    );
   }
 
   // Actualizar un producto
-  updateProduct(id: number, updatedProduct: Product): Observable<Product> {
-    return this.http.put<Product>(
+  updateProduct(
+    id: number,
+    updatedProduct: Product
+  ): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(
       `${this.apiUrl}/${id}`,
       updatedProduct,
       this.httpOptions

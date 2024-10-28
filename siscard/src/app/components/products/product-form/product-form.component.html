@@ -3,7 +3,7 @@
   <mat-form-field appearance="outline">
     <mat-label>Nombre del producto</mat-label>
     <input matInput [(ngModel)]="newProduct.name" name="productName" required minlength="3" #name="ngModel" />
-    <mat-error *ngIf="name.invalid && name.touched">
+    <mat-error *ngIf="name.invalid">
       El nombre es requerido y debe tener al menos 3 caracteres.
     </mat-error>
   </mat-form-field>
@@ -13,7 +13,7 @@
     <mat-label>Descripción</mat-label>
     <input matInput [(ngModel)]="newProduct.description" name="productDescription" required minlength="5"
       #description="ngModel" />
-    <mat-error *ngIf="description.invalid && description.touched">
+    <mat-error *ngIf="description.invalid">
       La descripción es requerida y debe tener al menos 5 caracteres.
     </mat-error>
   </mat-form-field>
@@ -23,7 +23,7 @@
     <mat-label>Precio</mat-label>
     <input matInput [(ngModel)]="newProduct.price" name="productPrice" type="number" required min="1"
       #price="ngModel" />
-    <mat-error *ngIf="price.invalid && price.touched">
+    <mat-error *ngIf="price.invalid">
       El precio debe ser mayor a 0.
     </mat-error>
   </mat-form-field>
@@ -31,9 +31,8 @@
   <!-- Stock -->
   <mat-form-field appearance="outline">
     <mat-label>Stock</mat-label>
-    <input matInput [(ngModel)]="newProduct.stock" name="productStock" type="number" required min="0"
-      #stock="ngModel" />
-    <mat-error *ngIf="stock.invalid && stock.touched">
+    <input matInput [(ngModel)]="newProduct.stock" name="productStock" type="number" #stock="ngModel" />
+    <mat-error *ngIf="stock.invalid">
       El stock debe ser mayor o igual a 0.
     </mat-error>
   </mat-form-field>

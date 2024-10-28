@@ -6,13 +6,19 @@ import {
 } from './product-form/product-form.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductService } from '../../services/products.service';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   standalone: true,
   selector: 'app-product',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
-  imports: [CommonModule, ProductFormComponent, ProductListComponent],
+  imports: [
+    CommonModule,
+    ProductFormComponent,
+    ProductListComponent,
+    MatSnackBarModule,
+  ],
 })
 export class ProductComponent implements OnInit {
   newProduct: Product = {
@@ -30,7 +36,10 @@ export class ProductComponent implements OnInit {
   totalPages: number = 0;
   isEditing: boolean = false;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit() {
     this.productService.getProducts().subscribe((products) => {
@@ -75,6 +84,11 @@ export class ProductComponent implements OnInit {
 
   deleteProduct(productId: number) {
     this.productService.deleteProduct(productId).subscribe(() => {
+      this.snackBar.open(
+        `El producto ha sido eliminado correctamente.`,
+        'Cerrar',
+        { duration: 3000 }
+      );
       this.refreshProducts();
     });
   }

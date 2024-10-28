@@ -1,7 +1,7 @@
-import pkg from "mssql";
+import mssql from "mssql";
 import { connectToDb } from "../config/db.js";
 
-const { VarChar, Text, Numeric, Int } = pkg;
+const { VarChar, Decimal, Int, Text } = mssql;
 
 // Obtener todos los productos
 async function getAllProducts() {
@@ -21,9 +21,9 @@ async function createProduct(product) {
   const pool = await connectToDb();
   const result = await pool
     .request()
-    .input("name", VarChar, name)
+    .input("name", VarChar(255), name)
     .input("description", Text, description)
-    .input("price", Numeric, price)
+    .input("price", Decimal(10, 2), price)
     .input("stock", Int, stock)
     .query(
       "INSERT INTO Products (name, description, price, stock) VALUES (@name, @description, @price, @stock)"
@@ -43,9 +43,9 @@ async function updateProduct(productId, product) {
   const result = await pool
     .request()
     .input("id", Int, productId)
-    .input("name", VarChar, name)
+    .input("name", VarChar(255), name)
     .input("description", Text, description)
-    .input("price", Numeric, price)
+    .input("price", Decimal(10, 2), price)
     .input("stock", Int, stock)
     .query(
       "UPDATE Products SET name = @name, description = @description, price = @price, stock = @stock WHERE id = @id"

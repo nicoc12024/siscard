@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Product } from '../product-form/product-form.component';
 
 @Component({

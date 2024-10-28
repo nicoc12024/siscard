@@ -1,9 +1,9 @@
-import pkg from "mssql"; 
+import pkg from "mssql";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const { connect } = pkg; 
+const { connect } = pkg;
 const dbConfig = {
   server: process.env.DB_SERVER,
   database: process.env.DB_DATABASE,

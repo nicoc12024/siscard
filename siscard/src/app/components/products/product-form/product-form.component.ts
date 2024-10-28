@@ -45,6 +45,14 @@ export class ProductFormComponent {
   onSubmit(form: NgForm) {
     if (form.valid) {
       this.saveProduct.emit(this.newProduct);
+
+      this.snackBar.open(
+        `El producto ha sido ${
+          this.isEditing ? 'actualizado' : 'añadido'
+        } correctamente.`,
+        'Cerrar',
+        { duration: 3000 }
+      );
       this.resetForm(form);
     }
   }
