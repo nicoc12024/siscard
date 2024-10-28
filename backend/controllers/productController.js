@@ -7,7 +7,7 @@ import {
   deleteProduct,
 } from "../services/productService.js";
 
-const router = express.Router(); // Define 'router' usando express.Router()
+const router = express.Router(); 
 
 router.get("/", async (req, res) => {
   try {

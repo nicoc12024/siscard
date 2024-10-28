@@ -1,7 +1,7 @@
 import pkg from "mssql";
 import { connectToDb } from "../config/db.js";
 
-const { VarChar, Text, Numeric, Int } = pkg; // Cambia Decimal por Numeric o Float
+const { VarChar, Text, Numeric, Int } = pkg;
 
 // Obtener todos los productos
 async function getAllProducts() {
@@ -23,7 +23,7 @@ async function createProduct(product) {
     .request()
     .input("name", VarChar, name)
     .input("description", Text, description)
-    .input("price", Numeric, price) // Usa Numeric o Float
+    .input("price", Numeric, price)
     .input("stock", Int, stock)
     .query(
       "INSERT INTO Products (name, description, price, stock) VALUES (@name, @description, @price, @stock)"
@@ -45,7 +45,7 @@ async function updateProduct(productId, product) {
     .input("id", Int, productId)
     .input("name", VarChar, name)
     .input("description", Text, description)
-    .input("price", Numeric, price) // Usa Numeric o Float
+    .input("price", Numeric, price)
     .input("stock", Int, stock)
     .query(
       "UPDATE Products SET name = @name, description = @description, price = @price, stock = @stock WHERE id = @id"
