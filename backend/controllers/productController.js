@@ -1,10 +1,13 @@
 // productController.js
+import express from "express";
 import {
   getAllProducts,
   createProduct,
   updateProduct,
   deleteProduct,
-} from "../services/productService";
+} from "../services/productService.js";
+
+const router = express.Router(); // Define 'router' usando express.Router()
 
 router.get("/", async (req, res) => {
   try {

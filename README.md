@@ -39,6 +39,8 @@ DB_DATABASE=siscard01
 DB_USER=tu-usuario
 DB_PASSWORD=tu-password
 DB_PORT=1433
+DB_TRUSTSERVERCERTIFICATE=false
+DB_ENCRYPT=false
 ```
 
 4. ### Inicia el servidor backend:

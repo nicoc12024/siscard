@@ -1,16 +1,15 @@
-// index.js
 import express from "express";
-import { json } from "body-parser";
 import cors from "cors";
-import { connectToDb } from "./config/db";
-import productController from "./controllers/productController";
+import { connectToDb } from "./config/db.js";
+import productController from "./controllers/productController.js";
 
 const app = express();
 const port = 3000;
 
 app.use(cors());
 
-app.use(json());
+// Usa el middleware JSON de Express directamente
+app.use(express.json());
 
 connectToDb()
   .then(() => {

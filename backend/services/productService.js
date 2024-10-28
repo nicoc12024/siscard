@@ -1,6 +1,7 @@
-// productService.js
-import { VarChar, Text, Decimal, Int } from "mssql";
-import { connectToDb } from "../config/db";
+import pkg from "mssql";
+import { connectToDb } from "../config/db.js";
+
+const { VarChar, Text, Numeric, Int } = pkg; // Cambia Decimal por Numeric o Float
 
 // Obtener todos los productos
 async function getAllProducts() {
@@ -13,7 +14,6 @@ async function getAllProducts() {
 async function createProduct(product) {
   const { name, description = null, price = null, stock = null } = product;
 
-  // Verificar que 'name' no sea null o vacío
   if (!name) {
     throw new Error("El campo 'name' es obligatorio.");
   }
@@ -23,7 +23,7 @@ async function createProduct(product) {
     .request()
     .input("name", VarChar, name)
     .input("description", Text, description)
-    .input("price", Decimal, price)
+    .input("price", Numeric, price) // Usa Numeric o Float
     .input("stock", Int, stock)
     .query(
       "INSERT INTO Products (name, description, price, stock) VALUES (@name, @description, @price, @stock)"
@@ -35,7 +35,6 @@ async function createProduct(product) {
 async function updateProduct(productId, product) {
   const { name, description = null, price = null, stock = null } = product;
 
-  // Verificar que 'name' no sea null o vacío
   if (!name) {
     throw new Error("El campo 'name' es obligatorio.");
   }
@@ -46,7 +45,7 @@ async function updateProduct(productId, product) {
     .input("id", Int, productId)
     .input("name", VarChar, name)
     .input("description", Text, description)
-    .input("price", Decimal, price)
+    .input("price", Numeric, price) // Usa Numeric o Float
     .input("stock", Int, stock)
     .query(
       "UPDATE Products SET name = @name, description = @description, price = @price, stock = @stock WHERE id = @id"
@@ -64,9 +63,4 @@ async function deleteProduct(productId) {
   return result;
 }
 
-export default {
-  getAllProducts,
-  createProduct,
-  updateProduct,
-  deleteProduct,
-};
+export { getAllProducts, createProduct, updateProduct, deleteProduct };

@@ -1,8 +1,9 @@
-import { connect } from "mssql";
+import pkg from "mssql"; 
 import dotenv from "dotenv";
 
 dotenv.config();
 
+const { connect } = pkg; 
 const dbConfig = {
   server: process.env.DB_SERVER,
   database: process.env.DB_DATABASE,
@@ -24,4 +25,4 @@ async function connectToDb() {
   }
 }
 
-export default { connectToDb };
+export { connectToDb };
